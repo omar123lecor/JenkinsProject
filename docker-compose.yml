@@ -11,6 +11,11 @@ services:
       MYSQL_PASSWORD: apppass
     ports:
       - "3307:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot" ]
+      interval: 2s
+      timeout: 2s
+      retries: 10
     volumes:
       - ./mysql/init:/docker-entrypoint-initdb.d:ro
       - mysql_data:/var/lib/mysql
@@ -33,8 +38,10 @@ services:
       dockerfile: Dockerfile
     container_name: etl
     depends_on:
-      - mysql
-      - postgres
+      mysql:
+        condition: service_healthy
+      postgres:
+        condition: service_started
     environment:
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
