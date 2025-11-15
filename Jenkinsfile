@@ -9,15 +9,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Start Databases') {
-            steps {
-                echo '🗄 Starting MySQL and Postgres...'
-                sh 'docker compose up -d mysql postgres'
-                sh 'echo "Waiting for databases to be ready..."'
-                // optional: simple wait, or a better check loop
-                sh 'sleep 40'  // waits 15 seconds for containers to initialize
-            }
-        }
+
         stage('Run ETL') {
             steps {
                 echo '🚀 Running ETL...'
