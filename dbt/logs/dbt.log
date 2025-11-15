@@ -12059,3 +12059,546 @@ drop view if exists "sales_warehouse"."public"."fact_orders__dbt_backup" cascade
 [0m15:56:15.146035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec6b0fda180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec6af67fe00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec6adc5c440>]}
 [0m15:56:15.147238 [debug] [MainThread]: Flushing usage events
 [0m15:56:16.049500 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:00:51.792643 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70685ffd8980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x706861244440>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70685ffd9ee0>]}
+
+
+============================== 16:00:51.800895 | dfdb6e35-b75f-48e6-b007-23c82587e38f ==============================
+[0m16:00:51.800895 [info ] [MainThread]: Running with dbt=1.9.0
+[0m16:00:51.801993 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'profiles_dir': '/usr/app/dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt test', 'send_anonymous_usage_stats': 'True'}
+[0m16:00:51.986378 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dfdb6e35-b75f-48e6-b007-23c82587e38f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70685e11eea0>]}
+[0m16:00:52.038571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dfdb6e35-b75f-48e6-b007-23c82587e38f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7068600de240>]}
+[0m16:00:52.040929 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m16:00:52.123479 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m16:00:52.677044 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:00:52.678174 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:00:52.711262 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dfdb6e35-b75f-48e6-b007-23c82587e38f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70685e1c8050>]}
+[0m16:00:52.786719 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt/target/manifest.json
+[0m16:00:52.792780 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt/target/semantic_manifest.json
+[0m16:00:52.839726 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'dfdb6e35-b75f-48e6-b007-23c82587e38f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70685da9bfe0>]}
+[0m16:00:52.840758 [info ] [MainThread]: Found 6 models, 10 data tests, 429 macros
+[0m16:00:52.841797 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dfdb6e35-b75f-48e6-b007-23c82587e38f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70685da5e000>]}
+[0m16:00:52.844505 [info ] [MainThread]: 
+[0m16:00:52.845493 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m16:00:52.846388 [info ] [MainThread]: 
+[0m16:00:52.847540 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m16:00:52.852047 [debug] [ThreadPool]: Acquiring new postgres connection 'list_sales_warehouse_public'
+[0m16:00:52.976170 [debug] [ThreadPool]: Using postgres connection "list_sales_warehouse_public"
+[0m16:00:52.977395 [debug] [ThreadPool]: On list_sales_warehouse_public: BEGIN
+[0m16:00:52.978181 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:00:52.995612 [debug] [ThreadPool]: SQL status: BEGIN in 0.017 seconds
+[0m16:00:52.996795 [debug] [ThreadPool]: Using postgres connection "list_sales_warehouse_public"
+[0m16:00:52.997666 [debug] [ThreadPool]: On list_sales_warehouse_public: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_sales_warehouse_public"} */
+select
+      'sales_warehouse' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'sales_warehouse' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'sales_warehouse' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m16:00:53.001624 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.003 seconds
+[0m16:00:53.003565 [debug] [ThreadPool]: On list_sales_warehouse_public: ROLLBACK
+[0m16:00:53.004637 [debug] [ThreadPool]: On list_sales_warehouse_public: Close
+[0m16:00:53.010215 [debug] [MainThread]: Using postgres connection "master"
+[0m16:00:53.011196 [debug] [MainThread]: On master: BEGIN
+[0m16:00:53.011975 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:00:53.018162 [debug] [MainThread]: SQL status: BEGIN in 0.006 seconds
+[0m16:00:53.019266 [debug] [MainThread]: Using postgres connection "master"
+[0m16:00:53.020113 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m16:00:53.024617 [debug] [MainThread]: SQL status: SELECT 10 in 0.004 seconds
+[0m16:00:53.028051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dfdb6e35-b75f-48e6-b007-23c82587e38f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70685fbe8e60>]}
+[0m16:00:53.028941 [debug] [MainThread]: On master: ROLLBACK
+[0m16:00:53.030000 [debug] [MainThread]: Using postgres connection "master"
+[0m16:00:53.030756 [debug] [MainThread]: On master: BEGIN
+[0m16:00:53.031697 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m16:00:53.032552 [debug] [MainThread]: On master: COMMIT
+[0m16:00:53.033336 [debug] [MainThread]: Using postgres connection "master"
+[0m16:00:53.034090 [debug] [MainThread]: On master: COMMIT
+[0m16:00:53.034922 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m16:00:53.035770 [debug] [MainThread]: On master: Close
+[0m16:00:53.038136 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc
+[0m16:00:53.039117 [info ] [Thread-1 (]: 1 of 10 START test not_null_dim_customer_customer_id ........................... [RUN]
+[0m16:00:53.040091 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_sales_warehouse_public, now test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc)
+[0m16:00:53.040945 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc
+[0m16:00:53.054200 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc"
+[0m16:00:53.120265 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc
+[0m16:00:53.133608 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc"
+[0m16:00:53.158077 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc"
+[0m16:00:53.159104 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc: BEGIN
+[0m16:00:53.159966 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.167089 [debug] [Thread-1 (]: SQL status: BEGIN in 0.007 seconds
+[0m16:00:53.168317 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc"
+[0m16:00:53.169199 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from "sales_warehouse"."public"."dim_customer"
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.176851 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.007 seconds
+[0m16:00:53.181465 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc: ROLLBACK
+[0m16:00:53.182402 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc: Close
+[0m16:00:53.183432 [info ] [Thread-1 (]: 1 of 10 PASS not_null_dim_customer_customer_id ................................. [[32mPASS[0m in 0.14s]
+[0m16:00:53.184599 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc
+[0m16:00:53.185653 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3
+[0m16:00:53.186466 [info ] [Thread-1 (]: 2 of 10 START test not_null_dim_product_product_key ............................ [RUN]
+[0m16:00:53.187589 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.not_null_dim_customer_customer_id.9775012dfc, now test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3)
+[0m16:00:53.188351 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3
+[0m16:00:53.191927 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3"
+[0m16:00:53.211906 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3
+[0m16:00:53.215457 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3"
+[0m16:00:53.230169 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3"
+[0m16:00:53.231304 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3: BEGIN
+[0m16:00:53.232268 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.239003 [debug] [Thread-1 (]: SQL status: BEGIN in 0.007 seconds
+[0m16:00:53.240145 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3"
+[0m16:00:53.241028 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select product_key
+from "sales_warehouse"."public"."dim_product"
+where product_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.247410 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.005 seconds
+[0m16:00:53.249627 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3: ROLLBACK
+[0m16:00:53.250579 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3: Close
+[0m16:00:53.251724 [info ] [Thread-1 (]: 2 of 10 PASS not_null_dim_product_product_key .................................. [[32mPASS[0m in 0.06s]
+[0m16:00:53.252909 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3
+[0m16:00:53.253889 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def
+[0m16:00:53.254751 [info ] [Thread-1 (]: 3 of 10 START test not_null_dim_region_region_key .............................. [RUN]
+[0m16:00:53.255741 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.not_null_dim_product_product_key.f0e1d838d3, now test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def)
+[0m16:00:53.256639 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def
+[0m16:00:53.260199 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def"
+[0m16:00:53.281711 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def
+[0m16:00:53.284315 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def"
+[0m16:00:53.298870 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def"
+[0m16:00:53.299943 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def: BEGIN
+[0m16:00:53.300857 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.313766 [debug] [Thread-1 (]: SQL status: BEGIN in 0.013 seconds
+[0m16:00:53.324776 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def"
+[0m16:00:53.325785 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select region_key
+from "sales_warehouse"."public"."dim_region"
+where region_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.330075 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.003 seconds
+[0m16:00:53.332018 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def: ROLLBACK
+[0m16:00:53.333058 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def: Close
+[0m16:00:53.334203 [info ] [Thread-1 (]: 3 of 10 PASS not_null_dim_region_region_key .................................... [[32mPASS[0m in 0.08s]
+[0m16:00:53.335410 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def
+[0m16:00:53.336346 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4
+[0m16:00:53.337286 [info ] [Thread-1 (]: 4 of 10 START test not_null_fact_orders_order_key .............................. [RUN]
+[0m16:00:53.338293 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.not_null_dim_region_region_key.9b2b3d9def, now test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4)
+[0m16:00:53.339188 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4
+[0m16:00:53.343337 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4"
+[0m16:00:53.360874 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4
+[0m16:00:53.363444 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4"
+[0m16:00:53.379300 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4"
+[0m16:00:53.380400 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4: BEGIN
+[0m16:00:53.381336 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.388122 [debug] [Thread-1 (]: SQL status: BEGIN in 0.007 seconds
+[0m16:00:53.389393 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4"
+[0m16:00:53.390304 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select order_key
+from "sales_warehouse"."public"."fact_orders"
+where order_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.396475 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.005 seconds
+[0m16:00:53.398648 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4: ROLLBACK
+[0m16:00:53.399757 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4: Close
+[0m16:00:53.401033 [info ] [Thread-1 (]: 4 of 10 PASS not_null_fact_orders_order_key .................................... [[32mPASS[0m in 0.06s]
+[0m16:00:53.402344 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4
+[0m16:00:53.403391 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18
+[0m16:00:53.404320 [info ] [Thread-1 (]: 5 of 10 START test not_null_fact_orders_quantity ............................... [RUN]
+[0m16:00:53.405400 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.not_null_fact_orders_order_key.e893eb60e4, now test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18)
+[0m16:00:53.406266 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18
+[0m16:00:53.409769 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18"
+[0m16:00:53.424890 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18
+[0m16:00:53.427465 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18"
+[0m16:00:53.443964 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18"
+[0m16:00:53.445108 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18: BEGIN
+[0m16:00:53.445969 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.452646 [debug] [Thread-1 (]: SQL status: BEGIN in 0.007 seconds
+[0m16:00:53.453842 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18"
+[0m16:00:53.454821 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select quantity
+from "sales_warehouse"."public"."fact_orders"
+where quantity is null
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.460425 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.005 seconds
+[0m16:00:53.462455 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18: ROLLBACK
+[0m16:00:53.463610 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18: Close
+[0m16:00:53.465008 [info ] [Thread-1 (]: 5 of 10 PASS not_null_fact_orders_quantity ..................................... [[32mPASS[0m in 0.06s]
+[0m16:00:53.466284 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18
+[0m16:00:53.467172 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06
+[0m16:00:53.468098 [info ] [Thread-1 (]: 6 of 10 START test not_null_fact_orders_sales .................................. [RUN]
+[0m16:00:53.469102 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.not_null_fact_orders_quantity.7cea3edb18, now test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06)
+[0m16:00:53.469915 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06
+[0m16:00:53.473386 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06"
+[0m16:00:53.488030 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06
+[0m16:00:53.490654 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06"
+[0m16:00:53.505868 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06"
+[0m16:00:53.506978 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06: BEGIN
+[0m16:00:53.507864 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.531697 [debug] [Thread-1 (]: SQL status: BEGIN in 0.024 seconds
+[0m16:00:53.532845 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06"
+[0m16:00:53.533675 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select sales
+from "sales_warehouse"."public"."fact_orders"
+where sales is null
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.539130 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.005 seconds
+[0m16:00:53.541145 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06: ROLLBACK
+[0m16:00:53.542058 [debug] [Thread-1 (]: On test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06: Close
+[0m16:00:53.543152 [info ] [Thread-1 (]: 6 of 10 PASS not_null_fact_orders_sales ........................................ [[32mPASS[0m in 0.07s]
+[0m16:00:53.544211 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06
+[0m16:00:53.545056 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1
+[0m16:00:53.545953 [info ] [Thread-1 (]: 7 of 10 START test unique_dim_customer_customer_id ............................. [RUN]
+[0m16:00:53.546925 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.not_null_fact_orders_sales.2a46db7f06, now test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1)
+[0m16:00:53.547724 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1
+[0m16:00:53.552751 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1"
+[0m16:00:53.579696 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1
+[0m16:00:53.582281 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1"
+[0m16:00:53.595878 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1"
+[0m16:00:53.596978 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1: BEGIN
+[0m16:00:53.597889 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.604197 [debug] [Thread-1 (]: SQL status: BEGIN in 0.006 seconds
+[0m16:00:53.605381 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1"
+[0m16:00:53.606268 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    customer_id as unique_field,
+    count(*) as n_records
+
+from "sales_warehouse"."public"."dim_customer"
+where customer_id is not null
+group by customer_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.611654 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.004 seconds
+[0m16:00:53.614107 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1: ROLLBACK
+[0m16:00:53.615015 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1: Close
+[0m16:00:53.616082 [info ] [Thread-1 (]: 7 of 10 PASS unique_dim_customer_customer_id ................................... [[32mPASS[0m in 0.07s]
+[0m16:00:53.617227 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1
+[0m16:00:53.618166 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.unique_dim_product_product_key.1753236bd0
+[0m16:00:53.618964 [info ] [Thread-1 (]: 8 of 10 START test unique_dim_product_product_key .............................. [RUN]
+[0m16:00:53.620004 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.unique_dim_customer_customer_id.b42affccd1, now test.sales_dbt_project.unique_dim_product_product_key.1753236bd0)
+[0m16:00:53.620903 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.unique_dim_product_product_key.1753236bd0
+[0m16:00:53.626175 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.unique_dim_product_product_key.1753236bd0"
+[0m16:00:53.652887 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.unique_dim_product_product_key.1753236bd0
+[0m16:00:53.655425 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.unique_dim_product_product_key.1753236bd0"
+[0m16:00:53.668324 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_dim_product_product_key.1753236bd0"
+[0m16:00:53.669349 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_product_product_key.1753236bd0: BEGIN
+[0m16:00:53.670164 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.676406 [debug] [Thread-1 (]: SQL status: BEGIN in 0.006 seconds
+[0m16:00:53.677560 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_dim_product_product_key.1753236bd0"
+[0m16:00:53.678529 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_product_product_key.1753236bd0: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.unique_dim_product_product_key.1753236bd0"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    product_key as unique_field,
+    count(*) as n_records
+
+from "sales_warehouse"."public"."dim_product"
+where product_key is not null
+group by product_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.688603 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.009 seconds
+[0m16:00:53.690573 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_product_product_key.1753236bd0: ROLLBACK
+[0m16:00:53.691583 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_product_product_key.1753236bd0: Close
+[0m16:00:53.692833 [info ] [Thread-1 (]: 8 of 10 PASS unique_dim_product_product_key .................................... [[32mPASS[0m in 0.07s]
+[0m16:00:53.694272 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.unique_dim_product_product_key.1753236bd0
+[0m16:00:53.695337 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.unique_dim_region_region_key.66a133323f
+[0m16:00:53.696283 [info ] [Thread-1 (]: 9 of 10 START test unique_dim_region_region_key ................................ [RUN]
+[0m16:00:53.697246 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.unique_dim_product_product_key.1753236bd0, now test.sales_dbt_project.unique_dim_region_region_key.66a133323f)
+[0m16:00:53.698033 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.unique_dim_region_region_key.66a133323f
+[0m16:00:53.701662 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.unique_dim_region_region_key.66a133323f"
+[0m16:00:53.716998 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.unique_dim_region_region_key.66a133323f
+[0m16:00:53.719370 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.unique_dim_region_region_key.66a133323f"
+[0m16:00:53.734133 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_dim_region_region_key.66a133323f"
+[0m16:00:53.735170 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_region_region_key.66a133323f: BEGIN
+[0m16:00:53.736064 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.754303 [debug] [Thread-1 (]: SQL status: BEGIN in 0.018 seconds
+[0m16:00:53.769314 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_dim_region_region_key.66a133323f"
+[0m16:00:53.770242 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_region_region_key.66a133323f: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.unique_dim_region_region_key.66a133323f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    region_key as unique_field,
+    count(*) as n_records
+
+from "sales_warehouse"."public"."dim_region"
+where region_key is not null
+group by region_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.777817 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.007 seconds
+[0m16:00:53.779762 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_region_region_key.66a133323f: ROLLBACK
+[0m16:00:53.780859 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_dim_region_region_key.66a133323f: Close
+[0m16:00:53.782064 [info ] [Thread-1 (]: 9 of 10 PASS unique_dim_region_region_key ...................................... [[32mPASS[0m in 0.08s]
+[0m16:00:53.783206 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.unique_dim_region_region_key.66a133323f
+[0m16:00:53.784195 [debug] [Thread-1 (]: Began running node test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5
+[0m16:00:53.785048 [info ] [Thread-1 (]: 10 of 10 START test unique_fact_orders_order_key ............................... [RUN]
+[0m16:00:53.786063 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.sales_dbt_project.unique_dim_region_region_key.66a133323f, now test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5)
+[0m16:00:53.787009 [debug] [Thread-1 (]: Began compiling node test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5
+[0m16:00:53.790550 [debug] [Thread-1 (]: Writing injected SQL for node "test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5"
+[0m16:00:53.838533 [debug] [Thread-1 (]: Began executing node test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5
+[0m16:00:53.841016 [debug] [Thread-1 (]: Writing runtime sql for node "test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5"
+[0m16:00:53.868227 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5"
+[0m16:00:53.869241 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5: BEGIN
+[0m16:00:53.870208 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:00:53.876722 [debug] [Thread-1 (]: SQL status: BEGIN in 0.006 seconds
+[0m16:00:53.877890 [debug] [Thread-1 (]: Using postgres connection "test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5"
+[0m16:00:53.878771 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    order_key as unique_field,
+    count(*) as n_records
+
+from "sales_warehouse"."public"."fact_orders"
+where order_key is not null
+group by order_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m16:00:53.940888 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.061 seconds
+[0m16:00:53.943761 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5: ROLLBACK
+[0m16:00:53.944987 [debug] [Thread-1 (]: On test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5: Close
+[0m16:00:53.946186 [info ] [Thread-1 (]: 10 of 10 PASS unique_fact_orders_order_key ..................................... [[32mPASS[0m in 0.16s]
+[0m16:00:53.947577 [debug] [Thread-1 (]: Finished running node test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5
+[0m16:00:53.949441 [debug] [MainThread]: Using postgres connection "master"
+[0m16:00:53.950289 [debug] [MainThread]: On master: BEGIN
+[0m16:00:53.951652 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m16:00:53.963615 [debug] [MainThread]: SQL status: BEGIN in 0.012 seconds
+[0m16:00:53.964836 [debug] [MainThread]: On master: COMMIT
+[0m16:00:53.965718 [debug] [MainThread]: Using postgres connection "master"
+[0m16:00:53.966452 [debug] [MainThread]: On master: COMMIT
+[0m16:00:53.967414 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m16:00:53.968233 [debug] [MainThread]: On master: Close
+[0m16:00:53.969159 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:00:53.969842 [debug] [MainThread]: Connection 'test.sales_dbt_project.unique_fact_orders_order_key.1d8f1532d5' was properly closed.
+[0m16:00:53.970618 [info ] [MainThread]: 
+[0m16:00:53.971569 [info ] [MainThread]: Finished running 10 data tests in 0 hours 0 minutes and 1.12 seconds (1.12s).
+[0m16:00:53.973890 [debug] [MainThread]: Command end result
+[0m16:00:54.007221 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt/target/manifest.json
+[0m16:00:54.012396 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt/target/semantic_manifest.json
+[0m16:00:54.021775 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt/target/run_results.json
+[0m16:00:54.022745 [info ] [MainThread]: 
+[0m16:00:54.023716 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m16:00:54.024638 [info ] [MainThread]: 
+[0m16:00:54.025620 [info ] [MainThread]: Done. PASS=10 WARN=0 ERROR=0 SKIP=0 TOTAL=10
+[0m16:00:54.027229 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 2.2908494, "process_in_blocks": "2760", "process_kernel_time": 0.734742, "process_mem_max_rss": "109720", "process_out_blocks": "1600", "process_user_time": 2.451012}
+[0m16:00:54.028256 [debug] [MainThread]: Command `dbt test` succeeded at 16:00:54.028157 after 2.29 seconds
+[0m16:00:54.029094 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x706860511df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70686093dbb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7068605bddc0>]}
+[0m16:00:54.029914 [debug] [MainThread]: Flushing usage events
+[0m16:00:54.801026 [debug] [MainThread]: An error was encountered while trying to flush usage events
