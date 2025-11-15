@@ -10,11 +10,14 @@ pipeline {
             }
         }
 
-        stage('Run dbt tests') {
+
+        stage('Run ETL') {
             steps {
-                echo '🧪 Running dbt tests...'
-                sh 'docker compose run --rm dbt test'
+                echo '🚀 Running ETL...'
+                sh 'docker compose run --rm etl'
             }
         }
+
+
     }
 }
