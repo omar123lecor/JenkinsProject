@@ -69,7 +69,7 @@ services:
     image: ghcr.io/dbt-labs/dbt-postgres:latest
     container_name: dbt
     volumes:
-      - ./dbt:/usr/app/dbt
+      - ./dbt/target:/usr/app/dbt
     working_dir: /usr/app/dbt
     environment:
       DBT_PROFILES_DIR: /usr/app/dbt
