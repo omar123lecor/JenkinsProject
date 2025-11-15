@@ -5,10 +5,11 @@ services:
     image: mysql:8.0
     container_name: mysql_source
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sales_db
+      MYSQL_HOST: mysql       # <-- nom du service docker
+      MYSQL_PORT: 3306        # <-- port interne du conteneur MySQL
       MYSQL_USER: appuser
       MYSQL_PASSWORD: apppass
+      MYSQL_DB: sales_db
     ports:
       - "3307:3306"   # <-- important
     healthcheck:
@@ -43,9 +44,8 @@ services:
       postgres:
         condition: service_started
     environment:
-      # ---- CORRECTION ICI ----
-      MYSQL_HOST: host.docker.internal
-      MYSQL_PORT: 3307           # <-- tu DOIS utiliser ce port
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
       MYSQL_USER: appuser
       MYSQL_PASSWORD: apppass
       MYSQL_DB: sales_db
@@ -54,7 +54,8 @@ services:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pgpass
       POSTGRES_DB: sales_warehouse
-    command: ["python", "load_mysql_to_postgres.py"]
+    command: [ "python", "load_mysql_to_postgres.py" ]
+
 
   dbt:
     image: ghcr.io/dbt-labs/dbt-postgres:latest
