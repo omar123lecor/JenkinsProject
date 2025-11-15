@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Checkout code') {
+            steps {
+                echo '📥 Cloning repository...'
+                checkout scm
+            }
+        }
         stage('Start Databases') {
             steps {
                 echo '🗄 Starting MySQL and Postgres...'
@@ -12,15 +18,6 @@ pipeline {
                 sh 'sleep 15'  // waits 15 seconds for containers to initialize
             }
         }
-
-
-        stage('Checkout code') {
-            steps {
-                echo '📥 Cloning repository...'
-                checkout scm
-            }
-        }
-
         stage('Run ETL') {
             steps {
                 echo '🚀 Running ETL...'
