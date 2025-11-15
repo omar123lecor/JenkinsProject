@@ -28,7 +28,7 @@ services:
       timeout: 2s
       retries: 10
     volumes:
-      - /var/jenkins_home/workspace/pipi/mysql/init/file.sql:/docker-entrypoint-initdb.d:ro
+      - /var/jenkins_home/workspace/pipi/mysql/init:/docker-entrypoint-initdb.d:ro
       - mysql_data:/var/lib/mysql
 
   postgres:
