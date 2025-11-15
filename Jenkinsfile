@@ -57,13 +57,14 @@ pipeline {
 
         stage('Run dbt Transformations') {
             steps {
-                sh 'docker compose run --rm dbt run'
+                sh 'docker compose run --rm -v $WORKSPACE/dbt:/usr/app/dbt dbt run'
             }
         }
 
+
         stage('Run dbt Tests') {
             steps {
-                sh 'docker compose run --rm dbt test'
+                sh 'docker compose run --rm -v $WORKSPACE/dbt:/usr/app/dbt dbt test'
             }
         }
 
