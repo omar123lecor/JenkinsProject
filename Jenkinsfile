@@ -14,10 +14,10 @@ pipeline {
             steps {
                 sh '''
                     echo "Starting MySQL + Postgres..."
-                    docker compose up -d mysql_source postgres_dest
+                    docker compose up -d mysql postgres
 
                     echo "Waiting for MySQL to be healthy..."
-                    until [ "$(docker inspect -f {{.State.Health.Status}} mysql_source)" = "healthy" ]; do
+                    until [ "$(docker inspect -f {{.State.Health.Status}} mysql)" = "healthy" ]; do
                         echo "MySQL not ready yet..."
                         sleep 3
                     done
