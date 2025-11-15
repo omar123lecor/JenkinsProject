@@ -16,6 +16,7 @@ services:
       interval: 2s
       timeout: 2s
       retries: 10
+
     volumes:
       - ./mysql/init:/docker-entrypoint-initdb.d:ro
       - mysql_data:/var/lib/mysql
@@ -43,7 +44,7 @@ services:
       postgres:
         condition: service_started
     environment:
-      MYSQL_HOST: mysql
+      MYSQL_HOST: host.docker.internal
       MYSQL_PORT: 3306
       MYSQL_USER: appuser
       MYSQL_PASSWORD: apppass
