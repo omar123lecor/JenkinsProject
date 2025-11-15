@@ -3,7 +3,12 @@ pipeline {
 
     stages {
 
-
+        stage('Checkout') {
+            steps {
+                checkout scm
+                sh 'ls -R .'
+            }
+        }
 
         stage('Run ETL') {
             steps {
