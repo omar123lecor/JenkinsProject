@@ -1,0 +1,79 @@
+version: '3.8'
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_source
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sales_db
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d:ro
+      - mysql_data:/var/lib/mysql
+
+  postgres:
+    image: postgres:15
+    container_name: postgres_dest
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpass
+      POSTGRES_DB: sales_warehouse
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  etl:
+    build:
+      context: ./etl
+      dockerfile: Dockerfile
+    container_name: etl
+    depends_on:
+      - mysql
+      - postgres
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+      MYSQL_DB: sales_db
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpass
+      POSTGRES_DB: sales_warehouse
+    command: ["python", "load_mysql_to_postgres.py"]
+
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:latest
+    container_name: dbt
+    depends_on:
+      - postgres
+    volumes:
+      - ./dbt:/usr/app/dbt
+    working_dir: /usr/app/dbt
+    environment:
+      DBT_PROFILES_DIR: /usr/app/dbt
+    entrypoint: [ "dbt" ]
+    command: [ "run" ]
+
+  jenkins:
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+    container_name: jenkins
+    user: root
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  mysql_data:
+  pg_data:
+  jenkins_home:

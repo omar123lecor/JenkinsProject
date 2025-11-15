@@ -1,0 +1,12 @@
+default:
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: postgres
+      port: 5432
+      user: pguser
+      password: pgpass
+      dbname: sales_warehouse
+      schema: public
+  target: dev
