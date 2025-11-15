@@ -2,8 +2,8 @@ import os
 import pandas as pd
 import mysql.connector
 import psycopg2
-
-# Connexion MySQL
+import time
+# --- Connexion MySQL ---
 mysql_config = {
     'host': os.getenv('MYSQL_HOST', 'mysql'),
     'user': os.getenv('MYSQL_USER', 'appuser'),
@@ -12,7 +12,24 @@ mysql_config = {
     'port': int(os.getenv('MYSQL_PORT', 3306))
 }
 
-# Connexion PostgreSQL
+print("📥 Connexion à MySQL...")
+for i in range(10):
+    try:
+        mysql_conn = mysql.connector.connect(**mysql_config)
+        print("✅ Connected to MySQL")
+        break
+    except mysql.connector.Error:
+        print("⏳ Waiting for MySQL to be ready...")
+        time.sleep(5)
+else:
+    raise Exception("❌ Could not connect to MySQL after several retries")
+
+
+df = pd.read_sql("SELECT * FROM sales;", mysql_conn)
+mysql_conn.close()
+print(f"✅ {len(df)} lignes extraites de MySQL.")
+
+# --- Connexion PostgreSQL ---
 pg_config = {
     'host': os.getenv('POSTGRES_HOST', 'postgres'),
     'user': os.getenv('POSTGRES_USER', 'pguser'),
@@ -21,18 +38,11 @@ pg_config = {
     'port': int(os.getenv('POSTGRES_PORT', 5432))
 }
 
-# Charger les données depuis MySQL
-print("📥 Connexion à MySQL...")
-mysql_conn = mysql.connector.connect(**mysql_config)
-df = pd.read_sql("SELECT * FROM sales;", mysql_conn)
-mysql_conn.close()
-print(f"✅ {len(df)} lignes extraites de MySQL.")
-
-# Créer la table dans PostgreSQL si elle n'existe pas
 print("📤 Connexion à PostgreSQL...")
 pg_conn = psycopg2.connect(**pg_config)
 pg_cursor = pg_conn.cursor()
 
+# Création de la table si elle n'existe pas
 create_table_query = """
 CREATE TABLE IF NOT EXISTS sales (
     Row_ID INT PRIMARY KEY,
@@ -61,8 +71,7 @@ CREATE TABLE IF NOT EXISTS sales (
 pg_cursor.execute(create_table_query)
 pg_conn.commit()
 
-# Insérer les données
-# Insérer les données
+# Insertion des données
 print("⬆️ Insertion des données dans PostgreSQL...")
 insert_query = """
 INSERT INTO sales (
