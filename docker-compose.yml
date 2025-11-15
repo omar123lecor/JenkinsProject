@@ -13,11 +13,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
-    depends_on:
-      - mysql
-      - postgres
-      - etl
-      - dbt
 
   mysql:
     image: mysql:8.0
