@@ -3,11 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Start Services') {
-            steps {
-                sh 'docker compose up -d --build'
-            }
-        }
+
 
         stage('Run ETL') {
             steps {
