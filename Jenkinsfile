@@ -43,8 +43,8 @@ pipeline {
             steps {
                 sh '''
                     MYSQL_CONTAINER=$(docker compose ps -q $MYSQL_SERVICE)
-                    echo "Injecting SQL file into MySQL..."
-                    docker exec $MYSQL_CONTAINER sh -c "mysql -uroot -proot sales_db < $SQL_FILE"
+                    docker cp /var/jenkins_home/workspace/pipi/mysql/file.sql $MYSQL_CONTAINER:/tmp/file.sql
+                    docker exec $MYSQL_CONTAINER sh -c "mysql -uroot -proot sales_db < /tmp/file.sql"
                 '''
             }
         }
