@@ -54,13 +54,18 @@ pipeline {
                 sh 'docker compose run --rm etl'
             }
         }
-
         stage('Run dbt Transformations') {
             steps {
-                sh 'docker compose run --rm -v $WORKSPACE/dbt:/usr/app/dbt dbt run'
+                sh '''
+                    DBT_CONTAINER=$(docker compose run -d dbt)
+                    docker cp dbt/target/dbt_project.yml $DBT_CONTAINER:/usr/app/dbt/dbt_project.yml
+                    docker cp dbt/target/profiles.yml $DBT_CONTAINER:/usr/app/dbt/profiles.yml
+                    docker cp dbt/target/models $DBT_CONTAINER:/usr/app/dbt/models
+                    docker exec $DBT_CONTAINER dbt run --rm
+
+                '''
             }
         }
-
 
         stage('Run dbt Tests') {
             steps {
