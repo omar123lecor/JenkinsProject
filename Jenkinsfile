@@ -58,10 +58,10 @@ pipeline {
             steps {
                 sh '''
                     DBT_CONTAINER=$(docker compose run -d dbt)
-                    docker cp dbt/target/dbt_project.yml $DBT_CONTAINER:/usr/app/dbt/dbt_project.yml
-                    docker cp dbt/target/profiles.yml $DBT_CONTAINER:/usr/app/dbt/profiles.yml
-                    docker cp dbt/target/models $DBT_CONTAINER:/usr/app/dbt/models
-                    docker exec $DBT_CONTAINER dbt run --rm
+                    docker cp dbt/dbt_project.yml $DBT_CONTAINER:/usr/app/dbt/dbt_project.yml
+                    docker cp dbt/profiles.yml $DBT_CONTAINER:/usr/app/dbt/profiles.yml
+                    docker cp dbt/models $DBT_CONTAINER:/usr/app/dbt/models
+                    docker exec $DBT_CONTAINER dbt run
 
                 '''
             }
