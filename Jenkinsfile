@@ -57,19 +57,24 @@ pipeline {
         stage('Run dbt Transformations') {
             steps {
                 sh '''
+                    DBT_CONTAINER=$(docker compose run -d dbt)
+
+                    echo "Copying full dbt project into container..."
+                    docker cp dbt/. $DBT_CONTAINER:/usr/app/dbt/
+
                     echo "Running dbt run..."
-                    docker compose run --rm dbt run
+                    docker exec $DBT_CONTAINER dbt run
                 '''
             }
         }
 
+
         stage('Run dbt Tests') {
             steps {
-                sh '''
-                    echo "Running dbt test..."
-                    docker compose run --rm dbt test
-                '''
+                sh 'docker compose run --rm -v $WORKSPACE/dbt:/usr/app/dbt dbt test'
             }
         }
+
+
     }
 }
