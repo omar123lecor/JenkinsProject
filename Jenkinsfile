@@ -44,7 +44,7 @@ pipeline {
                 sh '''
                     MYSQL_CONTAINER=$(docker compose ps -q $MYSQL_SERVICE)
                     docker cp /var/jenkins_home/workspace/pipi/mysql/file.sql $MYSQL_CONTAINER:/tmp/file.sql
-                    docker exec $MYSQL_CONTAINER sh -c "mysql -uroot -proot sales_db < /tmp/file.sql"
+                    docker exec $MYSQL_CONTAINER sh -c "mysql -h127.0.0.1 -uroot -proot sales_db < /tmp/file.sql"
                 '''
             }
         }
